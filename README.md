@@ -34,15 +34,19 @@ conda install pytorch==1.12.1 torchvision==0.13.1 torchaudio==0.12.1 cudatoolkit
 
 This repository contains four benchmark datasets, namely Parasite, Davis, KIBA, and BindingDB, which are used for two prediction tasks: drug-target affinity (DTA) prediction and molecular generation.
 
-#### Data preparation
+## Data and Model Weights
 
-###所有处理过的数据以及权重已放在https://doi.org/10.5281/zenodo.20539924
-###如果你想在自己的数据集上进行训练测试请按照以下步骤：
-### 1.运行esm_feature.py，获得蛋白质的序列特征
-### 2.运行3di_seq.py，获得蛋白质的3Di tokens，并运行3di_feature.py，获得蛋白质的3Di特征
-### 3.运行get_vocabs.py
-### 4.运行add_properties.py，获得分子的化学性质
-### 5.运行build_save_graphs.py，构建分子的图数据结构
+All processed data and pre-trained model weights are available at [Zenodo](https://doi.org/10.5281/zenodo.20539924).
+
+## Training and Testing on Your Own Dataset
+
+To train and evaluate the model on your custom dataset, please follow the steps below:
+
+1. Run `esm_feature.py` to extract sequence-level features of the proteins.
+2. Run `3di_seq.py` to obtain the 3Di tokens of the proteins, then run `3di_feature.py` to extract the 3Di structural features.
+3. Run `get_vocabs.py` to build the vocabulary files.
+4. Run `add_properties.py` to compute and append the chemical properties of the molecules.
+5. Run `build_save_graphs.py` to construct and save the graph-structured representations of the molecules.
 
 ## Pre-trained models
 
