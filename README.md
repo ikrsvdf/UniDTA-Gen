@@ -48,9 +48,10 @@ To train and evaluate the model on your custom dataset, please follow the steps 
 4. Run `add_properties.py` to compute and append the chemical properties of the molecules.
 5. Run `build_save_graphs.py` to construct and save the graph-structured representations of the molecules.
 
-## Pre-trained models
+## Pre-trained Models
 
-The complement of the self-supervised molecular representation learning model BerMol can be found in ./code/BerMol/. The pre-trained model (BerMolModel_base.pkl) could be downloaded from this [Link](https://drive.google.com/file/d/1ZW-PQXE4FvWHx77hkUA-JsqyJUb6B-NQ/view?usp=drive_link).
+- **ESM-2** ([facebookresearch/esm](https://github.com/facebookresearch/esm)) was employed for protein sequence encoding.
+- **ProstT5** ([Rostlab/ProstT5](https://huggingface.co/Rostlab/ProstT5)) was employed for structure-aware representation learning.
 
 ## Training
 
