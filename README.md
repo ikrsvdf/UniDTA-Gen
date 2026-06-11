@@ -3,7 +3,7 @@
 
 ## UniDTA-Gen
 <div align="center">  
-<img src="img/flowchart.png" width="800">
+<img src="model.png" width="800">
 </div>
 
 ## Setup and dependencies
