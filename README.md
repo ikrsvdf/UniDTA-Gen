@@ -57,18 +57,10 @@ To train and evaluate the model on your custom dataset, please follow the steps 
 
 Starting a new training run:
 ```bash
-python training_validation.py <task> <dataset> <experimental setting>
+python main.py 
 ```
-The options for task include dti, dta, and moa, the options for dataset include yamanishi_08, hetionet, davis, kiba, activation, and inhibition, and the options for experimental setting include warm_start, drug_coldstart, and protein_coldstart.
+Use the model weights for prediction by running `Pre_DTA.py`.
 
-For example, in moa task, using activation dataset and warm_start setting, run:
-```bash
-python training_validation.py moa activation warm_start
-```
-
-And in dti task, using yamanishi_08 dataset and protein_coldstart setting, run:
-```bash
-python training_validation.py dti yamanishi_08 protein_coldstart
-```
+Use the model weights for molecular generation by running `Pre_Gen.py`.
 
 And so on.
