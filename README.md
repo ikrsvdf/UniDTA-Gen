@@ -1,8 +1,7 @@
-## DTIAM: A unified framework for predicting drug-target interactions, binding affinities and activation/inhibition mechanisms
+## Unified Drug–Target Affinity Prediction and Molecular Generation via Multimodal Learning
 
-Official implementation of DTIAM, a unified framework for predicting drug-target interactions, binding affinities and activation/inhibition mechanisms.
 
-## DTIAM
+## UniDTA-Gen
 <div align="center">  
 <img src="img/flowchart.png" width="800">
 </div>
@@ -10,7 +9,7 @@ Official implementation of DTIAM, a unified framework for predicting drug-target
 ## Setup and dependencies
 #### Dependencies:
 ```
-- python 3.7
+- python 3.8
 - pytorch 1.12.1
 - autogluon 0.5.2
 - dill 0.3.4
@@ -26,17 +25,14 @@ Official implementation of DTIAM, a unified framework for predicting drug-target
 #### Conda environment
 ```bash
 # Run the commandline
-conda create -n dtiam python=3.7 -y
-conda activate dtiam
+conda create -n Unidta-gen python=3.8 -y
+conda activate Unidta-gen
 conda install pytorch==1.12.1 torchvision==0.13.1 torchaudio==0.12.1 cudatoolkit=11.3 -c pytorch -y
-pip install -r requirements.txt
-cd BerMol
-pip install -e .
 ```
 
 ## Data sets
 
-This repository contains six benchmark datasets, namely Yamanishi_08, Hetionet, Davis, KIBA, Activation and Inhibition, which are used for three prediction tasks: drug-target interaction (DTI) prediction, drug-target affinity (DTA) prediction, and mechanism of action (MoA) prediction. The raw data of these benchmark datasets can be found in ./data/. 
+This repository contains four benchmark datasets, namely Parasite, Davis, KIBA, and BindingDB, which are used for two prediction tasks: drug-target affinity (DTA) prediction and molecular generation.
 
 #### Data preparation
 
