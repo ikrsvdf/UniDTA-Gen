@@ -36,7 +36,13 @@ This repository contains four benchmark datasets, namely Parasite, Davis, KIBA, 
 
 #### Data preparation
 
-Before running the DTIAM model in ./code/, please first use ./code/data_prepare.sh to produce necessary files.
+###所有处理过的数据以及权重已放在https://doi.org/10.5281/zenodo.20539924
+###如果你想在自己的数据集上进行训练测试请按照以下步骤：
+### 1.运行esm_feature.py，获得蛋白质的序列特征
+### 2.运行3di_seq.py，获得蛋白质的3Di tokens，并运行3di_feature.py，获得蛋白质的3Di特征
+### 3.运行get_vocabs.py
+### 4.运行add_properties.py，获得分子的化学性质
+### 5.运行build_save_graphs.py，构建分子的图数据结构
 
 ## Pre-trained models
 
