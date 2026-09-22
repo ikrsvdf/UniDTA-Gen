@@ -11,7 +11,6 @@
 ```
 - python 3.8
 - pytorch 1.12.1
-- autogluon 0.5.2
 - dill 0.3.4
 - fair_esm 2.0.0
 - joblib 1.1.0
