@@ -6,27 +6,27 @@
 <img src="model.png" width="800">
 </div>
 
-## Setup and dependencies
-#### Dependencies:
-```
-- python 3.8
-- pytorch 1.12.1
-- dill 0.3.4
-- fair_esm 2.0.0
-- joblib 1.1.0
-- numpy 1.23.5
-- pandas 1.3.5
-- rdkit 2022.9.5
-- setuptools 59.8.0
-- tqdm 4.62.2
+## Setup
+
+Tested with Python 3.8.20, PyTorch 2.1.0 (CUDA 11.8).
+
+```bash
+conda create -n unidta-gen python=3.8 -y
+conda activate unidta-gen
+conda install pytorch==2.1.0 torchvision==0.16.0 torchaudio==2.1.0 pytorch-cuda=11.8 -c pytorch -c nvidia -y
 ```
 
-#### Conda environment
+Then install the remaining dependencies:
+
 ```bash
-# Run the commandline
-conda create -n Unidta-gen python=3.8 -y
-conda activate Unidta-gen
-conda install pytorch==1.12.1 torchvision==0.13.1 torchaudio==0.12.1 cudatoolkit=11.3 -c pytorch -y
+pip install dgl==2.4.0+cu118 -f https://data.dgl.ai/wheels/torch-2.1/cu118/repo.html
+pip install fairseq==0.10.2
+pip install fair-esm==2.0.0
+pip install transformers==4.46.3
+pip install jarvis-tools==2023.12.12 networkx==3.1 scikit-learn==1.3.2 scipy==1.10.1
+pip install rdkit==2024.3.5
+pip install numpy==1.23.5 pandas==1.3.5 tqdm==4.63.0
+pip install sentencepiece protobuf
 ```
 
 ## Data sets
@@ -51,6 +51,40 @@ To train and evaluate the model on your custom dataset, please follow the steps 
 
 - **ESM-2** ([facebookresearch/esm](https://github.com/facebookresearch/esm)) was employed for protein sequence encoding.
 - **ProstT5** ([Rostlab/ProstT5](https://huggingface.co/Rostlab/ProstT5)) was employed for structure-aware representation learning.
+
+## Repository layout
+
+```text
+.
+├── main.py                    # training entry point
+├── model.py                   # KA_GAT, DrugGenModel, ProteinFeatureExtractor, ...
+├── utils.py                   # DataSet, collate_fn, Tokenizer, metrics
+├── Pre_DTA.py                 # DTA inference
+├── Pre_Gen.py                 # molecule generation
+├── generation_eveluation.py   # validity / uniqueness / novelty
+├── Radam.py / lookahead.py    # optimizers
+└── data_process/
+    ├── esm_feature.py         # ESM-2 sequence features
+    ├── 3di_seq.py             # ProstT5 -> 3Di token sequences
+    ├── 3di_feature.py         # ProstT5 3Di features
+    ├── get_vocabs.py          # build SMILES tokenizer
+    ├── add_properties.py      # QED / logP / SAS
+    └── build_save_graphs.py   # build DGL molecular graphs
+```
+
+Expected data layout for a dataset `{dataset}` (e.g. `parasite`, `davis`, `kiba`, `bindingdb`):
+
+```text
+{dataset}/
+├── {dataset}_dataset.csv              # raw: Drug, Target, target_key, Y
+├── {dataset}_dataset_with_3di.csv     # + 3di_sequence, qed, logp, sas
+├── {dataset}_tokenizer.pkl
+├── esm2/{target_key}.pt
+├── 3di_embeddings/{target_key}.pt
+├── saved_graphs/{dataset}_graphs.pkl
+└── data_folds/{start_set}/{fold}/     # train.csv, test.csv
+```
+
 
 ## Training
 
