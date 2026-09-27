@@ -35,7 +35,7 @@ This repository contains four benchmark datasets, namely Parasite, Davis, KIBA, 
 
 ## Data and Model Weights
 
-All processed data and pre-trained model weights are available at [Google Drive]([https://doi.org/10.5281/zenodo.20539924](https://drive.google.com/drive/folders/1CjaEaFPpHO1w3NukovKNtNXO26isq28L?usp=sharing)).
+All processed data and pre-trained model weights are available at [Google Drive](https://drive.google.com/drive/folders/1CjaEaFPpHO1w3NukovKNtNXO26isq28L?usp=sharing).
 
 ## Training and Testing on Your Own Dataset
 
